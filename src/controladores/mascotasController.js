@@ -82,11 +82,16 @@ const actualizar=(req,res)=>{
     else{
         const nombre=req.body.nombre;
         const edad=req.body.edad;
-        mascotas.update({nombre,edad},{where:{id}}).then((resultado)=>{
+        const especie=req.body.especie;
+        const raza=req.body.raza;
+        const descripcion=req.body.descripcion;
+        const estado_adopcion=req.body.estado_adopcion;
+        const foto=req.body.foto;
+        mascotas.update({nombre,edad,especie,raza,descripcion,estado_adopcion,foto},{where:{id}}).then((resultado)=>{
             res.status(200).json({
                 tipo: 'success',
-                mensaje: "Registro Actualizado"
-            });
+                mensaje: `Registro Actualizado los dato son:`
+             });
 
         }).catch((err)=>{
             res.status(500).json({
