@@ -1,6 +1,6 @@
 import { adoptantes } from "../modelos/adoptanteModelo.js";
 
-//Crear un recurso Mascota
+//Crear un recurso adoptante
 const crear = (req, res) => {
 
     //Validar 
@@ -21,11 +21,11 @@ const crear = (req, res) => {
     //Usuar Sequelize para crear el recurso en la base de datos
     adoptantes.create(dataset).then((resultado) => {
         res.status(200).json({
-            mensaje: "Registro de Mascota Creado con Exito"
+            mensaje: "Registro de adoptante Creado con Exito"
         });
     }).catch((err) => {
         res.status(500).json({
-            mensaje: `Registro de Mascota No creado ::: ${err}`
+            mensaje: `Registro de adoptante No creado ::: ${err}`
         });
     });
 }
@@ -67,7 +67,7 @@ const buscarId = (req, res) => {
 
 
 
-//Actualizar Mascota
+//Actualizar adoptante
 const actualizar = (req, res) => {
     const id = req.params.id;
     if (!req.body.nombre && !req.body.nombre) {
@@ -79,8 +79,10 @@ const actualizar = (req, res) => {
     }
     else {
         const nombre = req.body.nombre;
-        const edad = req.body.edad;
-        adoptantes.update({ nombre, edad }, { where: { id } }).then((resultado) => {
+        const telefono = req.body.telefono;
+        const email = req.body.email;
+        const direccion = req.body.direccion ;
+        adoptantes.update({ nombre, telefono, email, direccion}, { where: { id } }).then((resultado) => {
             res.status(200).json({
                 tipo: 'success',
                 mensaje: "Registro Actualizado"
@@ -98,7 +100,7 @@ const actualizar = (req, res) => {
 
 }
 
-//Eliminar Mascota
+//Eliminar adoptante
 const eliminar = (req, res) => {
     const id = req.params.id;
     if (id == null) {

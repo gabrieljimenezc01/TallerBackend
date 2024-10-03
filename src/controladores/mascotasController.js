@@ -17,7 +17,8 @@ const crear = (req,res)=>{
         especie: req.body.especie,
         raza: req.body.raza,
         descripcion: req.body.descripcion,
-        estado_adopcion: req.body.estado_adopcion
+        estado_adopcion: req.body.estado_adopcion,
+        foto: req.body.foto,
     }
 
     //Usuar Sequelize para crear el recurso en la base de datos
