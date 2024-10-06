@@ -3,6 +3,7 @@ import { routerMascotas } from "./rutas/mascotasRouter.js";
 import {db} from "./database/conexion.js";
 import cors from "cors";
 import { routerAdoptantes } from "./rutas/adoptantesRouter.js";
+import { routerAdopciones } from "./rutas/solicitudesRouter.js";
 
 //Crear instancia de Express
 const app = express();
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
 //Llamar rutas de mascotas
 app.use("/mascotas",routerMascotas);
 app.use("/adoptantes",routerAdoptantes);
+app.use("/solicitudes",routerAdopciones);
 
 //Puerto de Servidor
 const PORT=4000;
