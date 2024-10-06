@@ -16,6 +16,7 @@ const crear = (req,res)=>{
         edad: req.body.edad,
         especie: req.body.especie,
         raza: req.body.raza,
+        sexo: req.body.sexo,
         descripcion: req.body.descripcion,
         estado_adopcion: req.body.estado_adopcion,
         foto: req.body.foto,
@@ -85,10 +86,11 @@ const actualizar=(req,res)=>{
         const edad=req.body.edad;
         const especie=req.body.especie;
         const raza=req.body.raza;
+        const sexo=req.body.sexo;
         const descripcion=req.body.descripcion;
         const estado_adopcion=req.body.estado_adopcion;
         const foto=req.body.foto;
-        mascotas.update({nombre,edad,especie,raza,descripcion,estado_adopcion,foto},{where:{id}}).then((resultado)=>{
+        mascotas.update({nombre,edad,especie,raza,sexo,descripcion,estado_adopcion,foto},{where:{id}}).then((resultado)=>{
             res.status(200).json({
                 tipo: 'success',
                 mensaje: `Registro Actualizado los dato son:`

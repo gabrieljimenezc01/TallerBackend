@@ -24,6 +24,14 @@ const adoptantes = db.define("adoptantes", {
   direccion: {
     type: Sequelize.TEXT,
     allowNull: true,
+  },
+  sexo: {
+    type: Sequelize.TEXT,
+    allowNull: true,
+  },
+  foto: {
+    type: Sequelize.TEXT,
+    allowNull: true,
   }
 })
 

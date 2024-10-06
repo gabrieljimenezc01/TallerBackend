@@ -25,6 +25,10 @@ const mascotas = db.define("mascotas",{
     type: Sequelize.STRING,
     allowNull: true,
   },
+  sexo:{
+    type: Sequelize.ENUM('Macho','Hembra'),
+    allowNull: true,
+  },
   descripcion: {
     type: Sequelize.TEXT,
     allowNull: true,

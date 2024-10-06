@@ -15,7 +15,9 @@ const crear = (req, res) => {
         nombre: req.body.nombre,
         telefono: req.body.telefono,
         email: req.body.email,
-        direccion: req.body.direccion 
+        direccion: req.body.direccion,
+        sexo: req.body.sexo,
+        foto: req.body.foto,
     }
 
     //Usuar Sequelize para crear el recurso en la base de datos
@@ -82,7 +84,9 @@ const actualizar = (req, res) => {
         const telefono = req.body.telefono;
         const email = req.body.email;
         const direccion = req.body.direccion ;
-        adoptantes.update({ nombre, telefono, email, direccion}, { where: { id } }).then((resultado) => {
+        const sexo = req.body.sexo ;        
+        const foto = req.body.foto ;
+        adoptantes.update({ nombre, telefono, email, direccion,sexo,foto}, { where: { id } }).then((resultado) => {
             res.status(200).json({
                 tipo: 'success',
                 mensaje: "Registro Actualizado"
