@@ -81,7 +81,7 @@ const actualizar = (req, res) => {
         const mascotas_id = req.body.mascotas_id;
         const estado = req.body.estado;
         
-        solicitudes.update({ adoptantes_id, mascotas_id, estado, mascota_nombre, adoptante_nombre}, { where: { id } }).then((resultado) => {
+        solicitudes.update({ adoptantes_id, mascotas_id, estado}, { where: { id } }).then((resultado) => {
             res.status(200).json({
                 tipo: 'success',
                 mensaje: "Registro Actualizado"
